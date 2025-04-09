@@ -19,7 +19,7 @@ jobs:
           java-version: '17'
 
       - name: Compile BasicCalculator.java
-        run: javac main/BasicCalculator.java
+        run: javac Calculator.java
 
       - name: Run BasicCalculator
-        run: echo -e "10\n+\n20" | java -cp main BasicCalculator
+        run: java Calculator
