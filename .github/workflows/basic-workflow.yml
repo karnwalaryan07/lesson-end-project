@@ -1,0 +1,25 @@
+name: Java Calculator CI
+run-name: Compile and Run BasicCalculator.java on Push
+
+on:
+  push:
+
+jobs:
+  build-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Compile BasicCalculator.java
+        run: javac main/BasicCalculator.java
+
+      - name: Run BasicCalculator
+        run: echo -e "10\n+\n20" | java -cp main BasicCalculator
